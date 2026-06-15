@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-white font-sans antialiased;
+    background-color: #0A0A0A;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0A0A0A;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #F97316;
+    border-radius: 3px;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-brand-gradient text-white font-semibold px-6 py-3 rounded-xl inline-flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(249,115,22,0.5)] active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply border border-dark-border text-white font-semibold px-6 py-3 rounded-xl inline-flex items-center gap-2 transition-all duration-300 hover:border-orange-500 hover:text-orange-400 hover:bg-white/5;
+  }
+
+  .card-glass {
+    @apply bg-dark-card/80 backdrop-blur-sm border border-dark-border rounded-2xl transition-all duration-300;
+  }
+
+  .card-glass:hover {
+    @apply border-orange-500/40 shadow-[0_0_30px_rgba(249,115,22,0.1)];
+  }
+
+  .section-title {
+    @apply font-heading font-bold text-4xl md:text-5xl text-white leading-tight;
+  }
+
+  .section-subtitle {
+    @apply text-gray-400 text-lg max-w-2xl mx-auto mt-4;
+  }
+
+  .badge {
+    @apply text-orange-400 text-sm font-semibold uppercase tracking-widest;
+  }
+
+  .gradient-text {
+    @apply bg-brand-gradient bg-clip-text text-transparent;
+  }
+
+  .glow-line {
+    @apply w-16 h-1 bg-brand-gradient rounded-full;
+  }
+}
+
+/* AOS override */
+[data-aos] {
+  pointer-events: none;
+}
+[data-aos].aos-animate {
+  pointer-events: auto;
+}
+
+/* Orange dot pulse */
+.orange-dot {
+  width: 6px;
+  height: 6px;
+  background: #F97316;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: blink 1.5s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+/* Section bg overrides — semi-transparent so global ambient shows through */
+.section-alt {
+  background: rgba(17, 17, 17, 0.5);
+  backdrop-filter: blur(2px);
+}
