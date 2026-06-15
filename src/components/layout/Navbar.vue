@@ -1,18 +1,22 @@
 <template>
-  <nav
-    :class="[
-      'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
-      scrolled ? 'bg-dark/95 backdrop-blur-md border-b border-dark-border shadow-xl' : 'bg-transparent'
-    ]"
+  <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-4 sm:px-6"
+    :class="scrolled ? 'pt-3' : 'pt-5'"
   >
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16 lg:h-20">
+    <!-- Floating pill container -->
+    <div
+      class="max-w-6xl mx-auto rounded-2xl transition-all duration-500 px-4 sm:px-6"
+      :class="scrolled
+        ? 'bg-[#0d0d0d]/90 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5),0_0_0_1px_rgba(249,115,22,0.1)]'
+        : 'bg-white/5 backdrop-blur-md border border-white/5'"
+    >
+      <div class="flex items-center justify-between h-14 lg:h-16">
+
         <!-- Logo -->
         <a href="#hero" class="flex items-center group">
           <img
             src="/zyranet_logo.png"
             alt="Zyra Net"
-            class="h-9 w-auto object-contain drop-shadow-[0_0_8px_rgba(249,115,22,0.4)] group-hover:drop-shadow-[0_0_14px_rgba(249,115,22,0.7)] transition-all duration-300"
+            class="h-14 w-auto object-contain drop-shadow-[0_0_8px_rgba(249,115,22,0.4)] group-hover:drop-shadow-[0_0_14px_rgba(249,115,22,0.7)] transition-all duration-300"
           />
         </a>
 
@@ -35,7 +39,7 @@
             <Phone class="w-4 h-4" />
             +254 700 000 000
           </a>
-          <a href="#plans" class="btn-primary text-sm py-2.5 px-5">
+          <a href="#plans" class="btn-primary text-sm py-2 px-5">
             Get Connected
             <ArrowRight class="w-4 h-4" />
           </a>
@@ -61,7 +65,7 @@
       leave-from-class="opacity-100 translate-y-0"
       leave-to-class="opacity-0 -translate-y-4"
     >
-      <div v-if="mobileOpen" class="md:hidden bg-dark-card border-t border-dark-border px-4 py-6 space-y-4">
+      <div v-if="mobileOpen" class="md:hidden max-w-6xl mx-auto mt-2 rounded-2xl bg-[#0d0d0d]/95 backdrop-blur-xl border border-white/10 px-4 py-5 space-y-4">
         <a
           v-for="link in navLinks"
           :key="link.href"

@@ -35,20 +35,11 @@
 
 
     <!-- ═══ MAIN CONTENT — centred column ═══ -->
-    <div class="relative z-10 flex flex-col items-center text-center px-4 max-w-4xl mx-auto pt-20">
+    <div class="relative z-10 flex flex-col items-center text-center px-4 max-w-4xl mx-auto pt-8">
 
-      <!-- Pill badge -->
-      <div
-        class="inline-flex items-center gap-2 mb-10 px-5 py-2 rounded-full border text-sm font-medium"
-        style="background: rgba(249,115,22,0.08); border-color: rgba(249,115,22,0.25); color: #FB923C;"
-        data-aos="fade-down"
-      >
-        <span class="orange-dot"></span>
-        Now serving Kisumu &amp; surrounding areas
-      </div>
 
       <!-- ═══ LOGO — centred hero element ═══ -->
-      <div class="relative mb-10" data-aos="zoom-in" data-aos-delay="100">
+      <div class="relative mb-0" data-aos="zoom-in" data-aos-delay="100">
         <!-- Logo image -->
         <img
           src="/zyranet_logo.png"
@@ -60,7 +51,7 @@
 
       <!-- Tagline -->
       <p
-        class="text-gray-400 text-base md:text-lg font-medium tracking-widest uppercase mb-6"
+        class="text-gray-400 text-base md:text-lg font-medium tracking-widest uppercase mb-4"
         data-aos="fade-up" data-aos-delay="180"
       >
         Fast &nbsp;·&nbsp; Reliable &nbsp;·&nbsp; Connected
@@ -103,16 +94,16 @@
 
       <!-- Trust pills row -->
       <div
-        class="flex flex-wrap items-center justify-center gap-4"
+        class="flex flex-wrap items-center justify-center gap-3"
         data-aos="fade-up" data-aos-delay="400"
       >
         <div
           v-for="trust in trustItems"
           :key="trust.label"
-          class="flex items-center gap-2 px-4 py-2 rounded-full text-sm text-gray-400"
-          style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);"
+          class="flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-sm font-medium text-gray-300 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_16px_rgba(249,115,22,0.15)]"
+          style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(8px);"
         >
-          <component :is="trust.icon" class="w-4 h-4 text-orange-500" />
+          <component :is="trust.icon" class="w-4 h-4 text-orange-400 shrink-0" />
           {{ trust.label }}
         </div>
       </div>
