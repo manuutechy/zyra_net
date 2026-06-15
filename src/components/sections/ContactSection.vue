@@ -4,10 +4,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <!-- Header -->
       <div class="text-center mb-16" data-aos="fade-up">
-        <span class="badge">Get Connected</span>
+        <span class="badge">Get Connected in Kisumu</span>
         <div class="glow-line mx-auto my-4"></div>
         <h2 class="section-title">Start Your Connection <span class="gradient-text">Today</span></h2>
-        <p class="section-subtitle">Fill in the form below and our team will reach out within 2 hours.</p>
+        <p class="section-subtitle">Fill in the form below and our Kisumu-based team will reach out within 2 hours.</p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -126,7 +126,7 @@
             </div>
             <div>
               <h4 class="font-semibold text-white mb-1">Email Us</h4>
-              <a href="mailto:info@zyranet.co.ke" class="text-gray-400 hover:text-orange-400 transition-colors text-sm">info@zyranet.co.ke</a>
+              <a href="mailto:hello@zyranet.co.ke" class="text-gray-400 hover:text-orange-400 transition-colors text-sm">hello@zyranet.co.ke</a>
               <p class="text-gray-500 text-xs mt-1">We reply within 1 business hour</p>
             </div>
           </div>
@@ -137,7 +137,10 @@
             </div>
             <div>
               <h4 class="font-semibold text-white mb-1">Visit Our Office</h4>
-              <p class="text-gray-400 text-sm">Oginga Odinga Street, Kisumu CBD</p>
+              <address class="not-italic">
+                <p class="text-gray-400 text-sm">Oginga Odinga Street, Kisumu CBD</p>
+                <p class="text-gray-400 text-sm">Kisumu Town, Kisumu County, Kenya</p>
+              </address>
               <p class="text-gray-500 text-xs mt-1">Open Mon–Fri: 8am–6pm</p>
             </div>
           </div>

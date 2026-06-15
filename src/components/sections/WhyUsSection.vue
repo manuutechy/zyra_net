@@ -3,10 +3,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Header -->
       <div class="text-center mb-16" data-aos="fade-up">
-        <span class="badge">Why Choose Us</span>
+        <span class="badge">Why Choose Zyra Net</span>
         <div class="glow-line mx-auto my-4"></div>
-        <h2 class="section-title">Built for Kisumu. <br><span class="gradient-text">Built to Last.</span></h2>
-        <p class="section-subtitle">We're not just an ISP — we're your connectivity partner.</p>
+        <h2 class="section-title">Kisumu's Most Reliable <br><span class="gradient-text">Internet Provider</span></h2>
+        <p class="section-subtitle">We're not just an ISP — we're your trusted connectivity partner in Kisumu, Kenya.</p>
       </div>
 
       <!-- Features Grid -->
@@ -50,33 +50,33 @@ import { Zap, Shield, Headphones, MapPin, RefreshCw, Wifi, ArrowRight } from '@l
 const features = [
   {
     icon: Zap,
-    title: 'Blazing Fast Speeds',
-    description: 'Experience internet up to 100 Mbps with our fibre-backed wireless infrastructure across Kisumu.',
+    title: 'Blazing Fast Internet Speeds',
+    description: 'Experience internet up to 100 Mbps with our fibre-backed wireless infrastructure across Kisumu — perfect for streaming, gaming, and remote work.',
   },
   {
     icon: Shield,
     title: 'Rock-Solid Reliability',
-    description: '99.9% uptime guaranteed. Our redundant network means you stay connected even during peak hours.',
+    description: '99.9% uptime guaranteed. Our redundant network in Kisumu means you stay connected even during peak hours with zero throttling.',
   },
   {
     icon: Headphones,
-    title: '24/7 Local Support',
-    description: 'Real humans, based in Kisumu. Reach us on WhatsApp, phone, or email any time of day.',
+    title: '24/7 Local Support in Kisumu',
+    description: 'Real humans, based right here in Kisumu. Reach us on WhatsApp, phone, or email any time of day for instant help.',
   },
   {
     icon: MapPin,
-    title: 'Local Coverage',
-    description: 'Covering Kisumu CBD, Milimani, Mamboleo, Nyalenda, and beyond. Expanding every month.',
+    title: 'Wide Kisumu Coverage',
+    description: 'Covering Kisumu CBD, Milimani, Mamboleo, Nyalenda, and beyond. Our network is expanding across Kisumu County every month.',
   },
   {
     icon: RefreshCw,
-    title: 'No Throttling',
-    description: 'Your speed is your speed — all day, every day. No hidden throttling, ever.',
+    title: 'No Throttling, Ever',
+    description: 'Your internet speed is your speed — all day, every day. No hidden throttling or fair-use policies that slow you down.',
   },
   {
     icon: Wifi,
-    title: 'Easy Self-Setup',
-    description: 'Our technicians handle everything. We deliver, install, and configure your router in one visit.',
+    title: 'Fast Professional Installation',
+    description: 'Our Kisumu-based technicians handle everything. We deliver, install, and configure your router in one visit — often same day.',
   },
 ]
 </script>

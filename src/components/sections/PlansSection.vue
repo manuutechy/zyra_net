@@ -4,10 +4,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <!-- Header -->
       <div class="text-center mb-16" data-aos="fade-up">
-        <span class="badge">Pricing Plans</span>
+        <span class="badge">Internet Packages Kisumu</span>
         <div class="glow-line mx-auto my-4"></div>
-        <h2 class="section-title">Simple, Transparent Pricing</h2>
-        <p class="section-subtitle">Choose a plan that fits your needs. No contracts, no surprises.</p>
+        <h2 class="section-title">Plans Built for <span class="gradient-text">Every Need</span></h2>
+        <p class="section-subtitle">Affordable internet packages in Kisumu with no contracts and no surprises. Pay via M-Pesa.</p>
       </div>
 
       <!-- Toggle -->
@@ -102,7 +102,7 @@
 
       <!-- Footer note -->
       <p class="text-center text-gray-500 text-sm mt-10" data-aos="fade-up">
-        All plans include free installation within Kisumu. Prices subject to M-Pesa convenience.
+        All plans include free installation within Kisumu. <a href="#contact" class="text-orange-400 hover:underline">Contact us</a> to check coverage in your area. Prices subject to M-Pesa convenience.
       </p>
     </div>
   </section>
@@ -117,7 +117,7 @@ const billingPeriod = ref('Monthly')
 const plans = [
   {
     name: 'Home Basic',
-    description: 'Perfect for light browsing, streaming, and social media.',
+    description: 'Perfect for light browsing, streaming, and social media. Reliable home WiFi in Kisumu starting at just KSh 1,500.',
     icon: Home,
     speed: '10 Mbps',
     monthlyPrice: '1,500',
@@ -133,7 +133,7 @@ const plans = [
   },
   {
     name: 'Home Plus',
-    description: 'Great for families with multiple devices and 4K streaming.',
+    description: 'Great for families with multiple devices and 4K streaming. Our most popular home internet package in Kisumu.',
     icon: Rocket,
     speed: '30 Mbps',
     monthlyPrice: '2,500',
@@ -149,8 +149,8 @@ const plans = [
     missing: ['Dedicated IP'],
   },
   {
-    name: 'Business',
-    description: 'Enterprise-grade speeds for offices and businesses.',
+    name: 'Business Broadband',
+    description: 'Enterprise-grade business internet for offices, schools and institutions in Kisumu. Dedicated PPPoE connection.',
     icon: Building2,
     speed: '100 Mbps',
     monthlyPrice: '6,000',

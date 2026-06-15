@@ -19,6 +19,9 @@
       <div class="scan-line"></div>
     </div>
 
+    <!-- SEO: Structured data (no visible output) -->
+    <SchemaOrg />
+
     <!-- Navbar -->
     <Navbar />
 
@@ -39,6 +42,7 @@
 </template>
 
 <script setup>
+import { useHead } from '@unhead/vue'
 import Navbar from './components/layout/Navbar.vue'
 import Footer from './components/layout/Footer.vue'
 import HeroSection from './components/sections/HeroSection.vue'
@@ -48,6 +52,27 @@ import WhyUsSection from './components/sections/WhyUsSection.vue'
 import CoverageSection from './components/sections/CoverageSection.vue'
 import TestimonialsSection from './components/sections/TestimonialsSection.vue'
 import ContactSection from './components/sections/ContactSection.vue'
+import SchemaOrg from './components/seo/SchemaOrg.vue'
+
+// ── Global head defaults (page-level composable overrides these) ───────────
+useHead({
+  htmlAttrs: { lang: 'en' },
+  meta: [
+    { charset: 'utf-8' },
+    { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+    { name: 'theme-color', content: '#F97316' },
+    { name: 'msapplication-TileColor', content: '#F97316' },
+    { name: 'format-detection', content: 'telephone=no' },
+  ],
+  link: [
+    { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+    { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+    { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+    { rel: 'manifest', href: '/site.webmanifest' },
+    { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+    { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+  ],
+})
 </script>
 
 <style scoped>

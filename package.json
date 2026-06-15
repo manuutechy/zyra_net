@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@lucide/vue": "^1.18.0",
+    "@unhead/vue": "^3.1.4",
     "aos": "^2.3.4",
+    "vite-plugin-sitemap": "^0.8.2",
     "vue": "^3.5.34",
     "vue-router": "^4.6.4"
   },

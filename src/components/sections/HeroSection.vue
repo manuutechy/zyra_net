@@ -37,6 +37,9 @@
     <!-- ═══ MAIN CONTENT — centred column ═══ -->
     <div class="relative z-10 flex flex-col items-center text-center px-4 max-w-4xl mx-auto pt-8">
 
+      <!-- SEO: Primary h1 — screen-reader only, does not affect design -->
+      <h1 class="sr-only">Zyra Net — Internet Service Provider in Kisumu, Kenya. Fast, reliable and affordable home WiFi, business broadband, hotspot and school internet. Pay via M-Pesa.</h1>
+
 
       <!-- ═══ LOGO — centred hero element ═══ -->
       <div class="relative mb-0" data-aos="zoom-in" data-aos-delay="100">
@@ -118,6 +121,18 @@
 
 <script setup>
 import { Zap, Phone, ChevronDown, Shield, Clock, Headphones } from '@lucide/vue'
+import { useSeo } from '@/composables/useSeo.js'
+
+// ── Page-level SEO meta (highest-priority keywords) ───────────────────────
+useSeo({
+  title: 'Fast WiFi Internet Provider in Kisumu, Kenya',
+  description:
+    'Zyra Net provides fast, reliable and affordable internet in Kisumu, Kenya. Home WiFi, business broadband, hotspot and school internet packages. Pay via M-Pesa. Get connected today.',
+  keywords:
+    'internet provider Kisumu, WiFi Kisumu, ISP Kisumu Kenya, fast internet Kisumu, Zyra Net, home internet Kisumu, business broadband Kisumu, hotspot WiFi Kisumu, school internet Kenya, affordable WiFi Kisumu, wireless internet Kisumu, internet packages Kisumu, fiber internet Kisumu, reliable internet Kisumu',
+  url: 'https://zyranet.co.ke',
+  type: 'website',
+})
 
 const trustItems = [
   { icon: Shield, label: 'No hidden fees' },

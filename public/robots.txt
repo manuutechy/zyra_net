@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Crawl-delay: 10
+
+Sitemap: https://zyranet.co.ke/sitemap.xml
+
+Host: https://zyranet.co.ke
