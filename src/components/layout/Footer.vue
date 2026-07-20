@@ -50,7 +50,7 @@
             </li>
             <li class="flex items-center gap-3 text-sm text-gray-400">
               <Phone class="w-4 h-4 text-orange-500 shrink-0" />
-              <a href="tel:+254700000000" class="hover:text-orange-400 transition-colors">+254 700 000 000</a>
+              <a href="tel:0113297270" class="hover:text-orange-400 transition-colors">0113297270</a>
             </li>
             <li class="flex items-center gap-3 text-sm text-gray-400">
               <Mail class="w-4 h-4 text-orange-500 shrink-0" />

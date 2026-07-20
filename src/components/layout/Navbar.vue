@@ -35,9 +35,9 @@
 
         <!-- CTA -->
         <div class="hidden md:flex items-center gap-4">
-          <a href="tel:+254700000000" class="text-gray-400 hover:text-orange-400 text-sm font-medium transition-colors flex items-center gap-2">
+          <a href="tel:0113297270" class="text-gray-400 hover:text-orange-400 text-sm font-medium transition-colors flex items-center gap-2">
             <Phone class="w-4 h-4" />
-            +254 700 000 000
+            0113297270
           </a>
           <a href="#plans" class="btn-primary text-sm py-2 px-5">
             Get Connected
