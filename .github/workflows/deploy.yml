@@ -1,0 +1,41 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Deploy over SSH
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+
+          tar czf dist.tgz -C dist .
+          scp -i ~/.ssh/deploy_key dist.tgz "$SSH_USER@$SSH_HOST:/tmp/website-dist.tgz"
+          ssh -i ~/.ssh/deploy_key "$SSH_USER@$SSH_HOST" '
+            set -e
+            rm -rf /tmp/website-dist && mkdir /tmp/website-dist
+            tar xzf /tmp/website-dist.tgz -C /tmp/website-dist
+            sudo rm -rf /www/wwwroot/zyranet.co.ke/*
+            sudo cp -r /tmp/website-dist/. /www/wwwroot/zyranet.co.ke/
+            sudo chown -R www:www /www/wwwroot/zyranet.co.ke
+            rm -rf /tmp/website-dist /tmp/website-dist.tgz
+          '
