@@ -21,7 +21,6 @@ useHead({
         url: 'https://zyranet.co.ke',
         logo: 'https://zyranet.co.ke/zyranet_logo.png',
         image: 'https://zyranet.co.ke/og-image.jpg',
-        telephone: '+254113297270',
         email: 'hello@zyranet.co.ke',
         address: {
           '@type': 'PostalAddress',
@@ -157,7 +156,7 @@ useHead({
             name: 'How do I get internet from Zyra Net in Kisumu?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Contact Zyra Net via WhatsApp or call us at 0113297270. Our team will visit your location in Kisumu and set up your connection within 24 hours.',
+              text: 'Contact Zyra Net via our website or open a support ticket. Our team will visit your location in Kisumu and set up your connection within 24 hours.',
             },
           },
           {

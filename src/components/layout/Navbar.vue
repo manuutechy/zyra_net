@@ -35,9 +35,8 @@
 
         <!-- CTA -->
         <div class="hidden md:flex items-center gap-4">
-          <a href="tel:0113297270" class="text-gray-400 hover:text-orange-400 text-sm font-medium transition-colors flex items-center gap-2">
-            <Phone class="w-4 h-4" />
-            0113297270
+          <a href="#contact" class="text-gray-400 hover:text-orange-400 text-sm font-medium transition-colors flex items-center gap-2">
+            Support
           </a>
           <a href="#plans" class="btn-primary text-sm py-2 px-5">
             Get Connected
@@ -85,7 +84,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { Phone, ArrowRight, Menu, X } from '@lucide/vue'
+import { ArrowRight, Menu, X } from '@lucide/vue'
 
 const scrolled = ref(false)
 const mobileOpen = ref(false)

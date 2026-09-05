@@ -111,12 +111,12 @@
           <!-- Info cards -->
           <div class="card-glass p-6 flex gap-4 items-start">
             <div class="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center shrink-0">
-              <Phone class="w-6 h-6 text-orange-500" />
+              <LifeBuoy class="w-6 h-6 text-orange-500" />
             </div>
             <div>
-              <h4 class="font-semibold text-white mb-1">Call or WhatsApp</h4>
-              <a href="tel:0113297270" class="text-gray-400 hover:text-orange-400 transition-colors text-sm">0113297270</a>
-              <p class="text-gray-500 text-xs mt-1">Mon–Sat: 8am–8pm | Sun: 10am–5pm</p>
+              <h4 class="font-semibold text-white mb-1">Customer Support</h4>
+              <p class="text-gray-400 text-sm">Need help with your connection? Submit a support ticket for instant assistance.</p>
+              <p class="text-gray-500 text-xs mt-1">24/7 Online Support</p>
             </div>
           </div>
 
@@ -162,7 +162,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { Send, Phone, Mail, MapPin, CheckCircle, Check } from '@lucide/vue'
+import { Send, LifeBuoy, Mail, MapPin, CheckCircle, Check } from '@lucide/vue'
 
 const form = ref({
   name: '',

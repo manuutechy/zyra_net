@@ -49,8 +49,8 @@
               <span>Kisumu CBD, Oginga Odinga St,<br>Kisumu, Kenya</span>
             </li>
             <li class="flex items-center gap-3 text-sm text-gray-400">
-              <Phone class="w-4 h-4 text-orange-500 shrink-0" />
-              <a href="tel:0113297270" class="hover:text-orange-400 transition-colors">0113297270</a>
+              <LifeBuoy class="w-4 h-4 text-orange-500 shrink-0" />
+              <span>24/7 Support Tickets</span>
             </li>
             <li class="flex items-center gap-3 text-sm text-gray-400">
               <Mail class="w-4 h-4 text-orange-500 shrink-0" />
@@ -75,7 +75,7 @@
 </template>
 
 <script setup>
-import { MapPin, Phone, Mail, ChevronRight, Globe, MessageCircle, Share2 } from '@lucide/vue'
+import { MapPin, LifeBuoy, Mail, ChevronRight, Globe, MessageCircle, Share2 } from '@lucide/vue'
 
 const socials = [
   { label: 'Facebook', href: '#', icon: Globe },
