@@ -9,15 +9,7 @@ export default defineConfig({
     vue(),
     sitemap({
       hostname: 'https://zyranet.co.ke',
-      routes: [
-        '/',
-        '/#about',
-        '/#plans',
-        '/#why-us',
-        '/#coverage',
-        '/#testimonials',
-        '/#contact',
-      ],
+      routes: ['/'],
       outDir: 'dist',
       generateRobotsTxt: false, // We manage robots.txt manually in /public
       lastmod: new Date().toISOString(),
@@ -38,10 +30,10 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (id.includes('node_modules/vue') || id.includes('node_modules/vue-router')) {
+          if (id.includes('node_modules/vue')) {
             return 'vendor'
           }
-          if (id.includes('node_modules/aos')) {
+          if (id.includes('node_modules/gsap')) {
             return 'animations'
           }
         },

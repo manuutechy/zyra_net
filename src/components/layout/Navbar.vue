@@ -1,106 +1,97 @@
 <template>
-  <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-4 sm:px-6"
-    :class="scrolled ? 'pt-3' : 'pt-5'"
+  <header
+    data-nav-bar
+    class="fixed inset-x-0 top-0 z-40 border-b transition-colors duration-300"
+    :class="solid ? 'border-line bg-[rgba(7,7,10,0.97)]' : 'border-transparent'"
   >
-    <!-- Floating pill container -->
-    <div
-      class="max-w-6xl mx-auto rounded-2xl transition-all duration-500 px-4 sm:px-6"
-      :class="scrolled
-        ? 'bg-[#0d0d0d]/90 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5),0_0_0_1px_rgba(249,115,22,0.1)]'
-        : 'bg-white/5 backdrop-blur-md border border-white/5'"
-    >
-      <div class="flex items-center justify-between h-14 lg:h-16">
+    <nav aria-label="Primary" class="mx-auto flex h-16 max-w-content items-center justify-between px-6 lg:px-8">
+      <a href="#hero" aria-label="Zyra Net, home" class="block">
+        <img src="/zyranet-logo-wide.png" alt="Zyra Net" width="571" height="180" class="h-9 w-auto" />
+      </a>
 
-        <!-- Logo -->
-        <a href="#hero" class="flex items-center group">
-          <img
-            src="/zyranet_logo.png"
-            alt="Zyra Net"
-            class="h-14 w-auto object-contain drop-shadow-[0_0_8px_rgba(249,115,22,0.4)] group-hover:drop-shadow-[0_0_14px_rgba(249,115,22,0.7)] transition-all duration-300"
-          />
-        </a>
-
-        <!-- Desktop Nav -->
-        <div class="hidden md:flex items-center gap-8">
+      <ul class="hidden list-none items-center gap-9 md:flex">
+        <li v-for="link in links" :key="link.href">
           <a
-            v-for="link in navLinks"
-            :key="link.href"
             :href="link.href"
-            class="text-gray-400 hover:text-white text-sm font-medium transition-colors duration-200 relative group"
+            class="inline-block py-4 text-[0.8125rem] font-semibold uppercase tracking-[0.16em] text-dim no-underline transition-colors hover:text-fg"
+          >
+            <span data-scramble>{{ link.label }}</span>
+          </a>
+        </li>
+      </ul>
+
+      <a href="#plans" class="btn-zyra hidden !min-h-[44px] !px-6 text-[0.9375rem] md:inline-flex" data-magnetic>
+        Get connected
+      </a>
+
+      <button
+        type="button"
+        class="grid h-11 w-11 place-items-center rounded-full border border-line text-fg md:hidden"
+        :aria-expanded="open"
+        aria-controls="mobile-menu"
+        aria-label="Menu"
+        @click="open = !open"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path v-if="!open" d="M4 8h16M4 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          <path v-else d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+        </svg>
+      </button>
+    </nav>
+
+    <div
+      v-if="open"
+      id="mobile-menu"
+      class="fixed inset-x-0 top-16 z-40 h-[calc(100svh-4rem)] overflow-y-auto bg-deep px-6 py-10 md:hidden"
+    >
+      <ul class="list-none space-y-2">
+        <li v-for="link in links" :key="link.href">
+          <a
+            :href="link.href"
+            data-mobile-link
+            class="display block border-b border-line py-4 text-[2rem] text-fg no-underline"
+            @click="open = false"
           >
             {{ link.label }}
-            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
           </a>
-        </div>
-
-        <!-- CTA -->
-        <div class="hidden md:flex items-center gap-4">
-          <a href="#contact" class="text-gray-400 hover:text-orange-400 text-sm font-medium transition-colors flex items-center gap-2">
-            Support
-          </a>
-          <a href="#plans" class="btn-primary text-sm py-2 px-5">
-            Get Connected
-            <ArrowRight class="w-4 h-4" />
-          </a>
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <button
-          @click="mobileOpen = !mobileOpen"
-          class="md:hidden text-gray-400 hover:text-white transition-colors"
-        >
-          <Menu v-if="!mobileOpen" class="w-6 h-6" />
-          <X v-else class="w-6 h-6" />
-        </button>
-      </div>
+        </li>
+      </ul>
+      <a href="#plans" data-mobile-link class="btn-zyra mt-10 w-full" @click="open = false">Get connected</a>
     </div>
-
-    <!-- Mobile Menu -->
-    <Transition
-      enter-active-class="transition-all duration-300"
-      enter-from-class="opacity-0 -translate-y-4"
-      enter-to-class="opacity-100 translate-y-0"
-      leave-active-class="transition-all duration-200"
-      leave-from-class="opacity-100 translate-y-0"
-      leave-to-class="opacity-0 -translate-y-4"
-    >
-      <div v-if="mobileOpen" class="md:hidden max-w-6xl mx-auto mt-2 rounded-2xl bg-[#0d0d0d]/95 backdrop-blur-xl border border-white/10 px-4 py-5 space-y-4">
-        <a
-          v-for="link in navLinks"
-          :key="link.href"
-          :href="link.href"
-          @click="mobileOpen = false"
-          class="block text-gray-400 hover:text-orange-400 font-medium py-2 transition-colors"
-        >
-          {{ link.label }}
-        </a>
-        <a href="#plans" @click="mobileOpen = false" class="btn-primary w-full justify-center">
-          Get Connected
-        </a>
-      </div>
-    </Transition>
-  </nav>
+  </header>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-import { ArrowRight, Menu, X } from '@lucide/vue'
+import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
+import { gsap } from 'gsap'
 
-const scrolled = ref(false)
-const mobileOpen = ref(false)
+const solid = ref(false)
+const open = ref(false)
 
-const navLinks = [
-  { href: '#hero', label: 'Home' },
+const links = [
   { href: '#plans', label: 'Plans' },
-  { href: '#why-us', label: 'Why Us' },
+  { href: '#why-us', label: 'Why Zyra Net' },
   { href: '#coverage', label: 'Coverage' },
+  { href: '#faq', label: 'FAQ' },
   { href: '#contact', label: 'Contact' },
 ]
 
-const handleScroll = () => {
-  scrolled.value = window.scrollY > 50
+const onScroll = () => {
+  solid.value = window.scrollY > 40
 }
 
-onMounted(() => window.addEventListener('scroll', handleScroll))
-onUnmounted(() => window.removeEventListener('scroll', handleScroll))
+watch(open, async (isOpen) => {
+  document.body.style.overflow = isOpen ? 'hidden' : ''
+  if (!isOpen) return
+  await nextTick()
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    gsap.from('[data-mobile-link]', { y: 28, autoAlpha: 0, duration: 0.7, ease: 'expo.out', stagger: 0.07 })
+  }
+})
+
+onMounted(() => window.addEventListener('scroll', onScroll, { passive: true }))
+onUnmounted(() => {
+  window.removeEventListener('scroll', onScroll)
+  document.body.style.overflow = ''
+})
 </script>

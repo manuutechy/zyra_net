@@ -1,11 +1,11 @@
 {
   "name": "Zyra Net",
   "short_name": "Zyra Net",
-  "description": "Fast, reliable and affordable WiFi Internet in Kisumu, Kenya. Home WiFi, business broadband, hotspot and school internet.",
+  "description": "Fast, reliable WiFi in Maseno, Kenya. Student packages, home WiFi and business broadband.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0A0A0A",
-  "theme_color": "#F97316",
+  "background_color": "#07070a",
+  "theme_color": "#07070a",
   "lang": "en-KE",
   "categories": ["utilities", "business"],
   "icons": [
@@ -32,7 +32,7 @@
       "src": "/og-image.jpg",
       "sizes": "1200x630",
       "type": "image/jpeg",
-      "label": "Zyra Net — Fast WiFi Internet in Kisumu, Kenya"
+      "label": "Zyra Net — Fast, Reliable WiFi in Maseno, Kenya"
     }
   ]
 }

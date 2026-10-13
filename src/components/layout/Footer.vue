@@ -1,92 +1,40 @@
 <template>
-  <footer class="bg-dark-card border-t border-dark-border pt-16 pb-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-        <!-- Brand -->
-        <div class="md:col-span-2">
-          <a href="#hero" class="flex items-center mb-4">
-            <img
-              src="/zyranet_logo.png"
-              alt="Zyra Net"
-              class="h-10 w-auto object-contain drop-shadow-[0_0_8px_rgba(249,115,22,0.4)]"
-            />
+  <footer class="border-t border-line bg-deep" aria-label="Site footer">
+    <div aria-hidden="true" class="overflow-hidden px-4 pt-16 text-center lg:pt-24">
+      <p data-footer-name class="display whitespace-nowrap text-[clamp(3.5rem,17vw,15rem)] leading-[1.02]">Zyra Net</p>
+    </div>
+
+    <div class="mx-auto flex max-w-content flex-col items-center gap-7 px-6 py-14 text-center lg:px-8">
+      <a href="#hero" aria-label="Zyra Net, back to top" class="block">
+        <img src="/zyranet-logo-wide.png" alt="Zyra Net" width="571" height="180" class="h-10 w-auto" />
+      </a>
+      <p class="max-w-[38ch] text-[1.0625rem] text-dim">Fast, reliable WiFi for Maseno.</p>
+      <ul class="flex list-none flex-wrap justify-center gap-x-8 gap-y-1">
+        <li v-for="link in links" :key="link.href">
+          <a :href="link.href" class="inline-block py-2 text-[0.9375rem] text-dim no-underline transition-colors hover:text-fg">
+            {{ link.label }}
           </a>
-          <p class="text-gray-400 text-sm leading-relaxed max-w-xs mb-6">
-            Kisumu's fastest and most reliable WiFi provider. Connecting homes, businesses, and communities across the lake city.
-          </p>
-          <div class="flex gap-4">
-            <a
-              v-for="social in socials"
-              :key="social.label"
-              :href="social.href"
-              :aria-label="social.label"
-              class="w-10 h-10 border border-dark-border rounded-lg flex items-center justify-center text-gray-400 hover:border-orange-500 hover:text-orange-400 transition-all duration-300"
-            >
-              <component :is="social.icon" class="w-4 h-4" />
-            </a>
-          </div>
-        </div>
-
-        <!-- Links -->
-        <div>
-          <h4 class="font-semibold text-white mb-4">Quick Links</h4>
-          <ul class="space-y-3">
-            <li v-for="link in quickLinks" :key="link.href">
-              <a :href="link.href" class="text-gray-400 hover:text-orange-400 text-sm transition-colors flex items-center gap-2">
-                <ChevronRight class="w-3 h-3" />
-                {{ link.label }}
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Contact -->
-        <div>
-          <h4 class="font-semibold text-white mb-4">Contact Us</h4>
-          <ul class="space-y-3">
-            <li class="flex items-start gap-3 text-sm text-gray-400">
-              <MapPin class="w-4 h-4 text-orange-500 mt-0.5 shrink-0" />
-              <span>Kisumu CBD, Oginga Odinga St,<br>Kisumu, Kenya</span>
-            </li>
-            <li class="flex items-center gap-3 text-sm text-gray-400">
-              <LifeBuoy class="w-4 h-4 text-orange-500 shrink-0" />
-              <span>24/7 Support Tickets</span>
-            </li>
-            <li class="flex items-center gap-3 text-sm text-gray-400">
-              <Mail class="w-4 h-4 text-orange-500 shrink-0" />
-              <a href="mailto:info@zyranet.co.ke" class="hover:text-orange-400 transition-colors">info@zyranet.co.ke</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Bottom Bar -->
-      <div class="border-t border-dark-border pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p class="text-gray-500 text-sm">
-          © {{ new Date().getFullYear() }} Zyra Net. All rights reserved.
-        </p>
-        <div class="flex items-center gap-2 text-gray-500 text-sm">
-          <span class="orange-dot"></span>
-          <span>Network Status: <span class="text-green-400 font-medium">All Systems Operational</span></span>
-        </div>
-      </div>
+        </li>
+        <li>
+          <a :href="`mailto:${email}`" class="inline-block py-2 text-[0.9375rem] text-dim no-underline transition-colors hover:text-fg">
+            {{ email }}
+          </a>
+        </li>
+      </ul>
+      <p class="max-w-[52ch] text-[0.8125rem] text-dim">Photography on this site is illustrative and AI-generated.</p>
+      <p class="text-[0.875rem] text-dim">&copy; {{ new Date().getFullYear() }} Zyra Net. All rights reserved.</p>
     </div>
   </footer>
 </template>
 
 <script setup>
-import { MapPin, LifeBuoy, Mail, ChevronRight, Globe, MessageCircle, Share2 } from '@lucide/vue'
+import { email } from '@/data/site.js'
 
-const socials = [
-  { label: 'Facebook', href: '#', icon: Globe },
-  { label: 'Twitter/X', href: '#', icon: Share2 },
-  { label: 'WhatsApp', href: '#', icon: MessageCircle },
-]
-
-const quickLinks = [
-  { href: '#plans', label: 'Internet Plans' },
+const links = [
+  { href: '#plans', label: 'Plans' },
   { href: '#why-us', label: 'Why Zyra Net' },
-  { href: '#coverage', label: 'Coverage Area' },
-  { href: '#contact', label: 'Get Connected' },
+  { href: '#coverage', label: 'Coverage' },
+  { href: '#faq', label: 'FAQ' },
+  { href: '#contact', label: 'Contact' },
 ]
 </script>

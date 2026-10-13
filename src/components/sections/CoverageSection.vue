@@ -1,104 +1,44 @@
 <template>
-  <section id="coverage" class="py-24 relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <!-- Left: Text -->
-        <div data-aos="fade-right">
-          <span class="badge">Coverage</span>
-          <div class="glow-line my-4"></div>
-          <h2 class="section-title mb-6">We Cover <span class="gradient-text">All of Kisumu</span></h2>
-          <p class="text-gray-400 leading-relaxed mb-8">
-            Our wireless network spans across Kisumu County, with continuous expansion underway. 
-            If you're not in our coverage zone yet, we want to hear from you!
-          </p>
+  <section id="coverage" aria-labelledby="coverage-heading" class="overflow-hidden bg-night">
+    <div class="hairline" aria-hidden="true"></div>
 
-          <!-- Areas list -->
-          <div class="grid grid-cols-2 gap-3 mb-8">
-            <div
-              v-for="area in areas"
-              :key="area"
-              class="flex items-center gap-3 bg-dark-card border border-dark-border rounded-lg px-4 py-3 text-sm text-gray-300 hover:border-orange-500/40 transition-colors"
-            >
-              <MapPin class="w-4 h-4 text-orange-500 shrink-0" />
-              {{ area }}
-            </div>
-          </div>
+    <div class="mx-auto grid max-w-content items-center gap-x-16 gap-y-14 px-6 pb-24 pt-16 lg:grid-cols-2 lg:px-8 lg:pb-36 lg:pt-24">
+      <div>
+        <h2 id="coverage-heading" data-reveal-lines class="display max-w-[12ch] text-[clamp(2.25rem,5.4vw,4.5rem)]">
+          Serving Maseno.
+        </h2>
+        <p class="mt-6 max-w-[48ch] text-[1.1875rem] leading-[1.7] text-dim">
+          Zyra Net WiFi covers Maseno, and the network keeps expanding. Tell us your hostel, estate or building and
+          we will confirm coverage and give you an install time, usually within hours.
+        </p>
+        <ul class="mt-8 list-none border-t border-line">
+          <li v-for="line in lines" :key="line" data-row class="flex items-center gap-3 border-b border-line py-4 text-[1.0625rem]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="shrink-0 text-zyra">
+              <path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {{ line }}
+          </li>
+        </ul>
+        <a href="#contact" class="btn-zyra mt-9" data-magnetic @click="lead.location = ''">Check my location</a>
+      </div>
 
-          <a href="#contact" class="btn-primary">
-            Check My Location
-            <ArrowRight class="w-4 h-4" />
-          </a>
+      <div class="mx-auto w-full max-w-[460px]" aria-hidden="true">
+        <div class="aspect-square w-full">
+        <svg viewBox="0 0 400 400" class="h-full w-full">
+          <circle v-for="r in [70, 120, 170]" :key="r" cx="200" cy="200" :r="r" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1" />
+          <circle data-ring cx="200" cy="200" r="50" fill="none" stroke="#ff6b00" stroke-width="1.5" />
+          <circle data-ring cx="200" cy="200" r="50" fill="none" stroke="#ff6b00" stroke-width="1.5" />
+          <circle cx="200" cy="200" r="7" fill="#ff6b00" />
+        </svg>
         </div>
-
-        <!-- Right: Map Visual -->
-        <div class="relative flex justify-center" data-aos="fade-left">
-          <div class="relative w-full max-w-md">
-            <!-- Stylized map card -->
-            <div class="bg-dark-card border border-dark-border rounded-3xl overflow-hidden aspect-square flex items-center justify-center relative">
-              <!-- Grid overlay -->
-              <div class="absolute inset-0 grid-bg opacity-50"></div>
-
-              <!-- Pulsing coverage circles -->
-              <div class="relative z-10 flex flex-col items-center">
-                <div class="relative">
-                  <div class="w-24 h-24 bg-orange-500/20 rounded-full flex items-center justify-center">
-                    <div class="w-16 h-16 bg-orange-500/30 rounded-full flex items-center justify-center">
-                      <div class="w-10 h-10 bg-brand-gradient rounded-full flex items-center justify-center">
-                        <MapPin class="w-5 h-5 text-white" />
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Pulse rings -->
-                  <div class="absolute inset-0 rounded-full border border-orange-500/30 animate-ping" style="animation-duration: 2s;"></div>
-                  <div class="absolute -inset-8 rounded-full border border-orange-500/15 animate-ping" style="animation-duration: 3s; animation-delay: 0.5s;"></div>
-                  <div class="absolute -inset-16 rounded-full border border-orange-500/10 animate-ping" style="animation-duration: 4s; animation-delay: 1s;"></div>
-                </div>
-                <div class="mt-6 text-center">
-                  <div class="font-heading font-bold text-2xl text-white">Kisumu, Kenya</div>
-                  <div class="text-gray-400 text-sm mt-1">Active Coverage Zone</div>
-                </div>
-              </div>
-
-              <!-- Coverage stats overlay -->
-              <div class="absolute bottom-6 left-6 right-6 bg-dark/80 backdrop-blur border border-dark-border rounded-xl px-4 py-3 flex justify-between">
-                <div class="text-center">
-                  <div class="font-bold text-orange-500">15+</div>
-                  <div class="text-gray-400 text-xs">Areas Covered</div>
-                </div>
-                <div class="w-px bg-dark-border"></div>
-                <div class="text-center">
-                  <div class="font-bold text-orange-500">50km²</div>
-                  <div class="text-gray-400 text-xs">Coverage Radius</div>
-                </div>
-                <div class="w-px bg-dark-border"></div>
-                <div class="text-center">
-                  <div class="font-bold text-orange-500">Growing</div>
-                  <div class="text-gray-400 text-xs">Every Month</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <p class="display mt-2 text-center text-[2rem]">Maseno</p>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { MapPin, ArrowRight } from '@lucide/vue'
+import { lead } from '@/composables/useLead.js'
 
-const areas = [
-  'Kisumu CBD',
-  'Milimani',
-  'Mamboleo',
-  'Nyalenda',
-  'Kondele',
-  'Kaloleni',
-  'Manyatta',
-  'Migosi',
-  'Kibuye',
-  'Riat',
-  'Tom Mboya',
-  'Obunga',
-]
+const lines = ['Free installation in Maseno', 'Set up in as little as 24 hours', 'Students, homes and businesses']
 </script>

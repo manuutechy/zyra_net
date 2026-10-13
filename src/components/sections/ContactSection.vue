@@ -1,200 +1,118 @@
 <template>
-  <section id="contact" class="py-24 relative">
-    <div class="absolute inset-0 hero-glow opacity-30 pointer-events-none"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <!-- Header -->
-      <div class="text-center mb-16" data-aos="fade-up">
-        <span class="badge">Get Connected in Kisumu</span>
-        <div class="glow-line mx-auto my-4"></div>
-        <h2 class="section-title">Start Your Connection <span class="gradient-text">Today</span></h2>
-        <p class="section-subtitle">Fill in the form below and our Kisumu-based team will reach out within 2 hours.</p>
+  <section id="contact" aria-labelledby="contact-heading" class="bg-night">
+    <div class="hairline" aria-hidden="true"></div>
+
+    <div class="mx-auto grid max-w-content gap-x-16 gap-y-12 px-6 pb-24 pt-16 lg:grid-cols-12 lg:px-8 lg:pb-36 lg:pt-24">
+      <div class="lg:col-span-5">
+        <h2 id="contact-heading" data-reveal-lines class="display text-[clamp(2.25rem,4.6vw,3.75rem)]">
+          Get connected today.
+        </h2>
+        <p class="mt-6 max-w-[40ch] text-[1.1875rem] leading-[1.7] text-dim">
+          Send us your details and we will confirm coverage at your hostel, estate or building and book your
+          installation. We reply within the hour on business days.
+        </p>
+        <dl class="mt-10 space-y-6">
+          <div>
+            <dt class="tag">Email</dt>
+            <dd class="mt-1">
+              <a :href="`mailto:${email}`" class="text-[1.25rem] font-semibold underline underline-offset-[6px] decoration-1 hover:decoration-2">{{ email }}</a>
+            </dd>
+          </div>
+          <div>
+            <dt class="tag">Support</dt>
+            <dd class="mt-1 text-[1.0625rem] text-dim">24/7 online support for every customer</dd>
+          </div>
+        </dl>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <!-- Form -->
-        <div class="card-glass p-8" data-aos="fade-right">
-          <form @submit.prevent="handleSubmit" class="space-y-5">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <div>
-                <label class="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
-                <input
-                  v-model="form.name"
-                  type="text"
-                  placeholder="e.g. Achieng Otieno"
-                  required
-                  class="input-field"
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-300 mb-2">Phone Number</label>
-                <input
-                  v-model="form.phone"
-                  type="tel"
-                  placeholder="+254 700 000 000"
-                  required
-                  class="input-field"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
-              <input
-                v-model="form.email"
-                type="email"
-                placeholder="you@example.com"
-                class="input-field"
-              />
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium text-gray-300 mb-2">Location / Area</label>
-              <input
-                v-model="form.location"
-                type="text"
-                placeholder="e.g. Milimani, Kisumu"
-                required
-                class="input-field"
-              />
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium text-gray-300 mb-2">Plan of Interest</label>
-              <select v-model="form.plan" class="input-field">
-                <option value="">Select a plan...</option>
-                <option value="home_basic">Home Basic — KSh 1,500/mo</option>
-                <option value="home_plus">Home Plus — KSh 2,500/mo</option>
-                <option value="business">Business — KSh 6,000/mo</option>
-              </select>
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium text-gray-300 mb-2">Message (Optional)</label>
-              <textarea
-                v-model="form.message"
-                rows="3"
-                placeholder="Any specific requirements or questions?"
-                class="input-field resize-none"
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              :disabled="submitting"
-              class="btn-primary w-full justify-center text-base py-4"
-            >
-              <span v-if="!submitting">
-                <Send class="w-5 h-5" />
-                Send Request
-              </span>
-              <span v-else class="flex items-center gap-2">
-                <svg class="animate-spin w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
-                </svg>
-                Sending...
-              </span>
-            </button>
-
-            <!-- Success message -->
-            <Transition name="fade">
-              <div v-if="submitted" class="bg-green-500/10 border border-green-500/30 text-green-400 rounded-xl px-4 py-3 text-sm flex items-center gap-2">
-                <CheckCircle class="w-5 h-5" />
-                Thank you! We'll contact you within 2 hours.
-              </div>
-            </Transition>
-          </form>
+      <form class="lg:col-span-7" @submit.prevent="handleSubmit">
+        <div class="grid gap-5 sm:grid-cols-2">
+          <label class="block">
+            <span class="field-label">Full name</span>
+            <input v-model="form.name" type="text" required autocomplete="name" class="field" />
+          </label>
+          <label class="block">
+            <span class="field-label">Phone number</span>
+            <input v-model="form.phone" type="tel" required autocomplete="tel" placeholder="+254" class="field" />
+          </label>
         </div>
 
-        <!-- Contact info -->
-        <div class="flex flex-col gap-6" data-aos="fade-left">
-          <!-- Info cards -->
-          <div class="card-glass p-6 flex gap-4 items-start">
-            <div class="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center shrink-0">
-              <LifeBuoy class="w-6 h-6 text-orange-500" />
-            </div>
-            <div>
-              <h4 class="font-semibold text-white mb-1">Customer Support</h4>
-              <p class="text-gray-400 text-sm">Need help with your connection? Submit a support ticket for instant assistance.</p>
-              <p class="text-gray-500 text-xs mt-1">24/7 Online Support</p>
-            </div>
-          </div>
+        <label class="mt-5 block">
+          <span class="field-label">Hostel, estate or building in Maseno</span>
+          <input v-model="lead.location" type="text" required placeholder="e.g. name of your hostel" class="field" />
+        </label>
 
-          <div class="card-glass p-6 flex gap-4 items-start">
-            <div class="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center shrink-0">
-              <Mail class="w-6 h-6 text-orange-500" />
-            </div>
-            <div>
-              <h4 class="font-semibold text-white mb-1">Email Us</h4>
-              <a href="mailto:hello@zyranet.co.ke" class="text-gray-400 hover:text-orange-400 transition-colors text-sm">hello@zyranet.co.ke</a>
-              <p class="text-gray-500 text-xs mt-1">We reply within 1 business hour</p>
-            </div>
-          </div>
+        <label class="mt-5 block">
+          <span class="field-label">What are you after?</span>
+          <select v-model="lead.plan" class="field">
+            <option value="">Select an option</option>
+            <option value="students">Student or hostel WiFi (prepaid)</option>
+            <option v-for="plan in plans" :key="plan.id" :value="plan.id">
+              {{ plan.name }}: KSh {{ plan.monthly }}/mo
+            </option>
+          </select>
+        </label>
 
-          <div class="card-glass p-6 flex gap-4 items-start">
-            <div class="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center shrink-0">
-              <MapPin class="w-6 h-6 text-orange-500" />
-            </div>
-            <div>
-              <h4 class="font-semibold text-white mb-1">Visit Our Office</h4>
-              <address class="not-italic">
-                <p class="text-gray-400 text-sm">Oginga Odinga Street, Kisumu CBD</p>
-                <p class="text-gray-400 text-sm">Kisumu Town, Kisumu County, Kenya</p>
-              </address>
-              <p class="text-gray-500 text-xs mt-1">Open Mon–Fri: 8am–6pm</p>
-            </div>
-          </div>
+        <label class="mt-5 block">
+          <span class="field-label">Message (optional)</span>
+          <textarea v-model="form.message" rows="3" class="field resize-none"></textarea>
+        </label>
 
-          <!-- Why connect CTA card -->
-          <div class="bg-brand-gradient rounded-2xl p-6">
-            <h4 class="font-heading font-bold text-white text-xl mb-3">Fast. Reliable. Connected.</h4>
-            <ul class="space-y-2 text-orange-100/90 text-sm">
-              <li class="flex items-center gap-2"><Check class="w-4 h-4" /> Same-day or next-day installation</li>
-              <li class="flex items-center gap-2"><Check class="w-4 h-4" /> Month-to-month, no lock-in</li>
-              <li class="flex items-center gap-2"><Check class="w-4 h-4" /> M-Pesa payments accepted</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+        <button type="submit" class="btn-zyra mt-8 w-full sm:w-auto" data-magnetic>Send request by email</button>
+
+        <p v-if="sent" role="status" class="mt-5 max-w-[60ch] text-[1rem] text-dim">
+          Your email app should now be open with your request ready to send. If it didn’t open, write to
+          <a :href="`mailto:${email}`" class="text-fg underline underline-offset-4">{{ email }}</a>
+          with your name, phone number and location and we will reply within the hour.
+        </p>
+      </form>
     </div>
   </section>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import { Send, LifeBuoy, Mail, MapPin, CheckCircle, Check } from '@lucide/vue'
+import { email, plans } from '@/data/site.js'
+import { lead } from '@/composables/useLead.js'
 
-const form = ref({
-  name: '',
-  phone: '',
-  email: '',
-  location: '',
-  plan: '',
-  message: '',
-})
+const form = ref({ name: '', phone: '', message: '' })
+const sent = ref(false)
 
-const submitting = ref(false)
-const submitted = ref(false)
+const planLabel = () => {
+  if (!lead.plan) return 'Not specified'
+  if (lead.plan === 'students') return 'Student or hostel WiFi (prepaid)'
+  const plan = plans.find((item) => item.id === lead.plan)
+  return plan ? `${plan.name} (KSh ${plan.monthly}/mo)` : lead.plan
+}
 
-const handleSubmit = async () => {
-  submitting.value = true
-  await new Promise(resolve => setTimeout(resolve, 1500))
-  submitting.value = false
-  submitted.value = true
-  form.value = { name: '', phone: '', email: '', location: '', plan: '', message: '' }
-  setTimeout(() => { submitted.value = false }, 6000)
+const handleSubmit = () => {
+  const body = [
+    `Name: ${form.value.name}`,
+    `Phone: ${form.value.phone}`,
+    `Location in Maseno: ${lead.location}`,
+    `Interested in: ${planLabel()}`,
+    form.value.message ? `Message: ${form.value.message}` : '',
+  ]
+    .filter(Boolean)
+    .join('\n')
+
+  const subject = `WiFi request from ${form.value.name || 'a new customer'} (Maseno)`
+  window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  sent.value = true
 }
 </script>
 
 <style scoped>
-.input-field {
-  @apply w-full bg-dark border border-dark-border rounded-xl px-4 py-3 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500/30 transition-all duration-200;
+.field-label {
+  @apply mb-2 block text-[0.875rem] font-medium text-dim;
 }
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.4s;
+.field {
+  @apply w-full rounded-2xl border border-line bg-transparent px-4 py-3.5 text-[1rem] text-fg placeholder-[#6f6f76] transition-colors duration-200 focus:border-zyra focus:outline-none;
 }
-.fade-enter-from, .fade-leave-to {
-  opacity: 0;
+
+select.field option {
+  background: #07070a;
+  color: #f3f3f5;
 }
 </style>
